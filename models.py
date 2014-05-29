@@ -21,8 +21,10 @@ class HMMBaseClass(object):
         :type filename: basestring
         """
         f = open(filename, 'w')
-        for symbol in self._symbol_stream:
-            f.write('%s\n' % symbol)
+        dates_list = [str(i) for i in range(len(self._symbol_stream))]
+        ardata_list = [str(i) for i in self._symbol_stream]
+        f.write('dates;' + ';'.join(dates_list) + '\n')
+        f.write('ardata;' + ';'.join(ardata_list) + '\n')
 
 
 class ARHMMGenerator(HMMBaseClass):
