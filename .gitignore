@@ -55,6 +55,7 @@ docs/_build/
 # data files
 *.txt
 *.csv
+*.dat
 
 # Pycharm files
 .idea
