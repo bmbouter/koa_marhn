@@ -38,8 +38,8 @@ def viterbi_example():
     my_hmm = HMMGenerator(N, M, A, B, pi)
     iterations = 100
     my_hmm.generate_data(iterations)
-    my_hmm.write_symbols_to_file_as_columns('viterbi_hmm_%s_col.csv' % iterations)
-    my_hmm.write_symbols_to_file_as_rows('viterbi_hmm_%s_row.csv' % iterations)
+    my_hmm.write_symbols_to_file_as_two_columns('viterbi_hmm_%s_col.csv' % iterations)
+    my_hmm.write_symbols_to_file_as_two_rows('viterbi_hmm_%s_row.csv' % iterations)
 
 if __name__ == "__main__":
     viterbi_example()

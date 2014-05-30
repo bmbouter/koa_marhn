@@ -11,7 +11,7 @@ class HMMBaseClass(object):
         self._hidden_state = []
         self._symbol_stream = []
 
-    def write_symbols_to_file_as_columns(self, filename):
+    def write_symbols_to_file_as_two_rows(self, filename):
         """
         Write the output symbols to a file.
 
@@ -27,7 +27,7 @@ class HMMBaseClass(object):
         f.write('dates;' + ';'.join(dates_list) + '\n')
         f.write('ardata;' + ';'.join(ardata_list) + '\n')
 
-    def write_symbols_to_file_as_rows(self, filename):
+    def write_symbols_to_file_as_two_columns(self, filename):
         """
         Write the output symbols to a file.
 
