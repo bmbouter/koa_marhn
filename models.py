@@ -11,11 +11,12 @@ class HMMBaseClass(object):
         self._hidden_state = []
         self._symbol_stream = []
 
-    def write_symbols_to_file(self, filename):
+    def write_symbols_to_file_as_columns(self, filename):
         """
         Write the output symbols to a file.
 
-        Each observation symbol is converted to a string and written to its own line in the file.
+        This method writes two long rows. The first row is the 'dates' field. The second row is
+        the 'ardata' field. All values are separated by semicolons.
 
         :param filename: The filename to write the data to.
         :type filename: basestring
@@ -25,6 +26,21 @@ class HMMBaseClass(object):
         ardata_list = [str(i) for i in self._symbol_stream]
         f.write('dates;' + ';'.join(dates_list) + '\n')
         f.write('ardata;' + ';'.join(ardata_list) + '\n')
+
+    def write_symbols_to_file_as_rows(self, filename):
+        """
+        Write the output symbols to a file.
+
+        Each observation symbol is converted to a string and written to a file with the form:
+
+        index, value
+
+        :param filename: The filename to write the data to.
+        :type filename: basestring
+        """
+        f = open(filename, 'w')
+        for i, symbol in enumerate(self._symbol_stream):
+            f.write('%s,%s\n' % (i, symbol))
 
 
 class ARHMMGenerator(HMMBaseClass):
