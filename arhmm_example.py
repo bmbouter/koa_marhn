@@ -12,10 +12,9 @@ def arhmm_example():
     R = [{'mean': 1, 'std_dev': 2}, {'mean': 3, 'std_dev': 3}]
     pi = [0.8, 0.2]
     my_ar_hmm = ARHMMGenerator(N, A, C, R, pi)
-    iterations = 10000
+    iterations = 1000
     my_ar_hmm.generate_data(iterations)
     my_ar_hmm.write_symbols_to_file_as_two_columns('arhmm_example_%s_col.csv' % iterations)
-    my_ar_hmm.write_symbols_to_file_as_two_rows('arhmm_example_%s_row.csv' % iterations)
 
 if __name__ == "__main__":
     arhmm_example()

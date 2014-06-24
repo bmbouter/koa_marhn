@@ -39,6 +39,7 @@ class HMMBaseClass(object):
         :type filename: basestring
         """
         f = open(filename, 'w')
+        f.write('dates,ardata\n')
         for i, symbol in enumerate(self._symbol_stream):
             f.write('%s,%s\n' % (i, symbol))
 
